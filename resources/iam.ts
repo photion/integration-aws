@@ -20,7 +20,7 @@ export const createPolicy = (): aws.iam.Policy => {
           ],
           Effect: 'Allow',
           Resource: [
-            `arn:aws:s3:::${config.s3.buckets.media.name}*/*`,
+            `arn:aws:s3:::${config.s3.buckets.concepts.name}*/*`,
           ],
         },
         {

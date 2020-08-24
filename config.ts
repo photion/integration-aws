@@ -35,8 +35,8 @@ export const config = {
   },
   s3: {
     buckets: {
-      media: {
-        name: 'photion--medias',
+      concepts: {
+        name: 'photion--concepts',
       },
     },
   },

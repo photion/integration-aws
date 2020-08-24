@@ -5,13 +5,13 @@ import { config } from '../config';
 
 export interface S3Resources {
   buckets: {
-    media: aws.s3.Bucket;
+    concepts: aws.s3.Bucket;
   }
 }
 
-export const mediaBucket = (): aws.s3.Bucket => {
-  const bucket = new aws.s3.Bucket(config.s3.buckets.media.name, {
-    bucket: `${config.s3.buckets.media.name}--${config.stack}`,
+export const conceptsBucket = (): aws.s3.Bucket => {
+  const bucket = new aws.s3.Bucket(config.s3.buckets.concepts.name, {
+    bucket: `${config.s3.buckets.concepts.name}--${config.stack}`,
   });
 
   return bucket;
@@ -20,7 +20,7 @@ export const mediaBucket = (): aws.s3.Bucket => {
 
 export const handleS3 = (): S3Resources => {
   const buckets = {
-    media: mediaBucket(),
+    concepts: conceptsBucket(),
   };
 
   return { buckets };
