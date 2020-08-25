@@ -12,6 +12,17 @@ export interface S3Resources {
 export const conceptsBucket = (): aws.s3.Bucket => {
   const bucket = new aws.s3.Bucket(config.s3.buckets.concepts.name, {
     bucket: `${config.s3.buckets.concepts.name}--${config.stack}`,
+    corsRules: [
+      {
+        allowedHeaders: ['*'],
+        allowedMethods: [
+          'PUT',
+          'POST',
+          'DELETE',
+        ],
+        allowedOrigins: ['*'],
+      },
+    ],
   });
 
   return bucket;
