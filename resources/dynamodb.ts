@@ -18,8 +18,7 @@ export const projectsTable = (): aws.dynamodb.Table => {
       { name: 'uuid', type: 'S' },
     ],
     hashKey: 'uuid',
-    readCapacity: 1,
-    writeCapacity: 1,
+    billingMode: 'PAY_PER_REQUEST',
   });
 
   return table;
@@ -32,8 +31,7 @@ export const conceptsTable = (): aws.dynamodb.Table => {
       { name: 'uuid', type: 'S' },
     ],
     hashKey: 'uuid',
-    readCapacity: 1,
-    writeCapacity: 1,
+    billingMode: 'PAY_PER_REQUEST',
   });
 
   return table;
@@ -46,8 +44,7 @@ export const fragmentsTable = (): aws.dynamodb.Table => {
       { name: 'uuid', type: 'S' },
     ],
     hashKey: 'uuid',
-    readCapacity: 1,
-    writeCapacity: 1,
+    billingMode: 'PAY_PER_REQUEST',
   });
 
   return table;
