@@ -1,6 +1,6 @@
 import * as pulumi from '@pulumi/pulumi';
 
-const prefix = `photion--${process.env.PHOTION_USERNAME || 'default'}`;
+const prefix = 'photion';
 
 export const config = {
   region: 'eu-west-1',
