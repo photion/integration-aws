@@ -1,2 +1,5 @@
 /bin/
 /node_modules/
+
+# ignore stack details
+Pulumi.*.yaml
