@@ -1,42 +1,44 @@
 import * as pulumi from '@pulumi/pulumi';
 
+const prefix = `photion--${process.env.PHOTION_USERNAME || 'default'}`;
+
 export const config = {
   region: 'eu-west-1',
   stack: pulumi.getStack(),
   dynamodb: {
     tables: {
       projects: {
-        name: 'photion--projects',
+        name: `${prefix}--projects`,
       },
       concepts: {
-        name: 'photion--concepts',
+        name: `${prefix}--concepts`,
       },
       fragments: {
-        name: 'photion--fragments',
+        name: `${prefix}--fragments`,
       },
     },
   },
   iam: {
     policies: {
       publisher: {
-        name: 'photion--policy--publisher',
+        name: `${prefix}--policy--publisher`,
       },
     },
     policyAttachments: {
       publisher: {
-        name: 'photion--policy-attachment--publisher',
+        name: `${prefix}--policy-attachment--publisher`,
       },
     },
     users: {
       publisher: {
-        name: 'photion--user--publisher',
+        name: `${prefix}--user--publisher`,
       },
     },
   },
   s3: {
     buckets: {
       concepts: {
-        name: 'photion--concepts',
+        name: `${prefix}--concepts`,
       },
     },
   },
