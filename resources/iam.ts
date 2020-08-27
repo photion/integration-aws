@@ -11,6 +11,7 @@ export interface IamResources {
 
 export const createPolicy = (): aws.iam.Policy => {
   const policy = new aws.iam.Policy(config.iam.policies.publisher.name, {
+    name: `${config.iam.policies.publisher.name}--${config.stack}`,
     policy: JSON.stringify({
       Version: '2012-10-17',
       Statement: [
@@ -42,7 +43,9 @@ export const createPolicy = (): aws.iam.Policy => {
 };
 
 export const handleIam = (): IamResources => {
-  const user = new aws.iam.User(config.iam.users.publisher.name);
+  const user = new aws.iam.User(config.iam.users.publisher.name, {
+    name: `${config.iam.users.publisher.name}--${config.stack}`,
+  });
   const policy = createPolicy();
 
   return {
@@ -50,6 +53,7 @@ export const handleIam = (): IamResources => {
     policies: [policy],
     policyAttachments: [
       new aws.iam.PolicyAttachment(config.iam.policyAttachments.publisher.name, {
+        name: `${config.iam.policyAttachments.publisher.name}--${config.stack}`,
         users: [user],
         policyArn: policy.arn,
       }),
