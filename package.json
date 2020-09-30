@@ -1,16 +1,22 @@
 {
-    "name": "photion-integration-aws",
-    "devDependencies": {
-        "@types/node": "^14.11.2",
-        "@typescript-eslint/eslint-plugin": "^4.3.0",
-        "@typescript-eslint/parser": "^4.3.0",
-        "eslint": "^7.10.0",
-        "eslint-config-dipasqualew": "^1.0.3",
-        "typescript": "^4.0.3"
-    },
-    "dependencies": {
-        "@pulumi/aws": "^2.0.0",
-        "@pulumi/awsx": "^0.22.0",
-        "@pulumi/pulumi": "^2.10.2"
+  "name": "photion-integration-aws",
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-dipasqualew": "^1.0.3",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^2.0.0",
+    "@pulumi/awsx": "^0.22.0",
+    "@pulumi/pulumi": "^2.10.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  }
 }
