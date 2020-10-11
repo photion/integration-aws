@@ -42,8 +42,10 @@ export const fragmentsTable = (): aws.dynamodb.Table => {
     name: config.dynamodb.tables.fragments.name,
     attributes: [
       { name: 'uuid', type: 'S' },
+      { name: 'concept', type: 'S' },
     ],
-    hashKey: 'uuid',
+    hashKey: 'concept',
+    rangeKey: 'uuid',
     billingMode: 'PAY_PER_REQUEST',
   });
 
