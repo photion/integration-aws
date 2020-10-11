@@ -2,43 +2,52 @@ import * as pulumi from '@pulumi/pulumi';
 
 const prefix = 'photion';
 
+export const getResourceName = (resource: string): string => {
+  return `${prefix}--${pulumi.getStack()}--${resource}`;
+};
+
 export const config = {
   region: 'eu-west-1',
   stack: pulumi.getStack(),
   dynamodb: {
     tables: {
       projects: {
-        name: `${prefix}--projects`,
+        name: getResourceName('projects'),
       },
       concepts: {
-        name: `${prefix}--concepts`,
+        name: getResourceName('concepts'),
       },
       fragments: {
-        name: `${prefix}--fragments`,
+        name: getResourceName('fragments'),
       },
     },
   },
   iam: {
+    accessKeys: {
+      default: {
+        name: getResourceName('access-key--default'),
+      },
+    },
     policies: {
       publisher: {
-        name: `${prefix}--policy--publisher`,
+        name: getResourceName('policy--publisher'),
       },
     },
     policyAttachments: {
       publisher: {
-        name: `${prefix}--policy-attachment--publisher`,
+        name: getResourceName('policy-attachment--publisher'),
       },
     },
     users: {
       publisher: {
-        name: `${prefix}--user--publisher`,
+        name: getResourceName('user--publisher'),
       },
     },
   },
   s3: {
     buckets: {
       concepts: {
-        name: `${prefix}--concepts`,
+        name: getResourceName('concepts'),
       },
     },
   },

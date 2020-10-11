@@ -13,7 +13,7 @@ export interface DynamoDBResources {
 
 export const projectsTable = (): aws.dynamodb.Table => {
   const table = new aws.dynamodb.Table(config.dynamodb.tables.projects.name, {
-    name: `${config.dynamodb.tables.projects.name}--${config.stack}`,
+    name: config.dynamodb.tables.projects.name,
     attributes: [
       { name: 'uuid', type: 'S' },
     ],
@@ -26,7 +26,7 @@ export const projectsTable = (): aws.dynamodb.Table => {
 
 export const conceptsTable = (): aws.dynamodb.Table => {
   const table = new aws.dynamodb.Table(config.dynamodb.tables.concepts.name, {
-    name: `${config.dynamodb.tables.concepts.name}--${config.stack}`,
+    name: config.dynamodb.tables.concepts.name,
     attributes: [
       { name: 'uuid', type: 'S' },
     ],
@@ -39,7 +39,7 @@ export const conceptsTable = (): aws.dynamodb.Table => {
 
 export const fragmentsTable = (): aws.dynamodb.Table => {
   const table = new aws.dynamodb.Table(config.dynamodb.tables.fragments.name, {
-    name: `${config.dynamodb.tables.fragments.name}--${config.stack}`,
+    name: config.dynamodb.tables.fragments.name,
     attributes: [
       { name: 'uuid', type: 'S' },
     ],
