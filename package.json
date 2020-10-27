@@ -3,7 +3,7 @@
   "devDependencies": {
     "@types/node": "^14.14.3",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
+    "@typescript-eslint/parser": "^4.6.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.12.0",
     "eslint-config-dipasqualew": "^1.0.3",
