@@ -5,13 +5,13 @@ import { config } from '../config';
 
 export interface S3Resources {
   buckets: {
-    concepts: aws.s3.Bucket;
+    folders: aws.s3.Bucket;
   }
 }
 
-export const conceptsBucket = (): aws.s3.Bucket => {
-  const bucket = new aws.s3.Bucket(config.s3.buckets.concepts.name, {
-    bucket: config.s3.buckets.concepts.name,
+export const foldersBucket = (): aws.s3.Bucket => {
+  const bucket = new aws.s3.Bucket(config.s3.buckets.folders.name, {
+    bucket: config.s3.buckets.folders.name,
     corsRules: [
       {
         allowedHeaders: ['*'],
@@ -31,7 +31,7 @@ export const conceptsBucket = (): aws.s3.Bucket => {
 
 export const handleS3 = (): S3Resources => {
   const buckets = {
-    concepts: conceptsBucket(),
+    folders: foldersBucket(),
   };
 
   return { buckets };

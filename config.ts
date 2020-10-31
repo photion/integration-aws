@@ -14,11 +14,11 @@ export const config = {
       projects: {
         name: getResourceName('projects'),
       },
-      concepts: {
-        name: getResourceName('concepts'),
+      folders: {
+        name: getResourceName('folders'),
       },
-      fragments: {
-        name: getResourceName('fragments'),
+      media: {
+        name: getResourceName('media'),
       },
     },
   },
@@ -46,8 +46,8 @@ export const config = {
   },
   s3: {
     buckets: {
-      concepts: {
-        name: getResourceName('concepts'),
+      folders: {
+        name: getResourceName('folders'),
       },
     },
   },

@@ -23,7 +23,7 @@ export const createPolicy = (): aws.iam.Policy => {
           ],
           Effect: 'Allow',
           Resource: [
-            `arn:aws:s3:::${config.s3.buckets.concepts.name}*/*`,
+            `arn:aws:s3:::${config.s3.buckets.folders.name}*/*`,
           ],
         },
         {
@@ -33,8 +33,8 @@ export const createPolicy = (): aws.iam.Policy => {
           Effect: 'Allow',
           Resource: [
             `arn:aws:dynamodb:${config.region}:*:table/${config.dynamodb.tables.projects.name}`,
-            `arn:aws:dynamodb:${config.region}:*:table/${config.dynamodb.tables.concepts.name}`,
-            `arn:aws:dynamodb:${config.region}:*:table/${config.dynamodb.tables.fragments.name}`,
+            `arn:aws:dynamodb:${config.region}:*:table/${config.dynamodb.tables.folders.name}`,
+            `arn:aws:dynamodb:${config.region}:*:table/${config.dynamodb.tables.media.name}`,
           ],
         },
       ],

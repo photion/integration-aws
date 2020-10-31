@@ -6,8 +6,8 @@ import { config } from '../config';
 export interface DynamoDBResources {
   tables: {
     projects: aws.dynamodb.Table;
-    concepts: aws.dynamodb.Table;
-    fragments: aws.dynamodb.Table;
+    folders: aws.dynamodb.Table;
+    media: aws.dynamodb.Table;
   };
 }
 
@@ -24,9 +24,9 @@ export const projectsTable = (): aws.dynamodb.Table => {
   return table;
 };
 
-export const conceptsTable = (): aws.dynamodb.Table => {
-  const table = new aws.dynamodb.Table(config.dynamodb.tables.concepts.name, {
-    name: config.dynamodb.tables.concepts.name,
+export const foldersTable = (): aws.dynamodb.Table => {
+  const table = new aws.dynamodb.Table(config.dynamodb.tables.folders.name, {
+    name: config.dynamodb.tables.folders.name,
     attributes: [
       { name: 'uuid', type: 'S' },
     ],
@@ -37,9 +37,9 @@ export const conceptsTable = (): aws.dynamodb.Table => {
   return table;
 };
 
-export const fragmentsTable = (): aws.dynamodb.Table => {
-  const table = new aws.dynamodb.Table(config.dynamodb.tables.fragments.name, {
-    name: config.dynamodb.tables.fragments.name,
+export const mediaTable = (): aws.dynamodb.Table => {
+  const table = new aws.dynamodb.Table(config.dynamodb.tables.media.name, {
+    name: config.dynamodb.tables.media.name,
     attributes: [
       { name: 'uuid', type: 'S' },
     ],
@@ -53,8 +53,8 @@ export const fragmentsTable = (): aws.dynamodb.Table => {
 export const handleDynamoDB = (): DynamoDBResources => {
   const tables = {
     projects: projectsTable(),
-    concepts: conceptsTable(),
-    fragments: fragmentsTable(),
+    folders: foldersTable(),
+    media: mediaTable(),
   };
 
   return { tables };
